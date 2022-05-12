@@ -1,4 +1,4 @@
-FROM node:15.0.0
+FROM node:18.0.0
 
 LABEL org.opencontainers.image.title="Sample container"
 
