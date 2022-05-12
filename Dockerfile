@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY ./package.json /usr/src/app/
+RUN npm install -g npm@8.10.0
 RUN npm install
 
 # Bundle app source
