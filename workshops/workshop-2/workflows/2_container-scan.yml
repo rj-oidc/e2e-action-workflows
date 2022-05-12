@@ -19,6 +19,7 @@ jobs:
         with:
           image-name: ${{ secrets.CONTAINER_REGISTRY }}/joshsample:${{ github.sha }}
 
+# Optional steps
 #       - uses: Azure/docker-login@v1
 #         with:
 #           login-server: ${{ env.CONTAINER_REGISTRY }}
