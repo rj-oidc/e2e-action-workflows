@@ -13,11 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: docker build . -t ${{ secrets.CONTAINER_REGISTRY }}/constellation:${{ github.sha }}
+      - run: docker build . -t ${{ secrets.CONTAINER_REGISTRY }}/joshsample:${{ github.sha }}
 
       - uses: Azure/container-scan@v0
         with:
-          image-name: ${{ secrets.CONTAINER_REGISTRY }}/constellation:${{ github.sha }}
+          image-name: ${{ secrets.CONTAINER_REGISTRY }}/joshsample:${{ github.sha }}
 
 #       - uses: Azure/docker-login@v1
 #         with:
