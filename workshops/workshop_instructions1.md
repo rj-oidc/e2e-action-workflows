@@ -4,9 +4,9 @@
 
 :bookmark: The following instructions will take on the assumption that you will be completing the steps on the GitHub UI. Feel free to use the terminal or any other GUIs you are comfortable with.
 
-# Part 1: Set up your repository using Github Action
+# Set up
 
-Workflow 1 will focus on setting up the organisation and repository. It will do the following :
+This section will focus on setting up the organisation and repository. It will do the following :
 
 1. Setup community health files, as per the [documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
 2. Setup labels for the entire org
