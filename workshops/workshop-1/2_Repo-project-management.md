@@ -5,7 +5,7 @@ Part 2 will focus on issue automation and project management. It will do the fol
 - When an issue is assigned to a user, create another issue.
 - When an issue is closed, create new issues and update old issue.
 
-This helps in automating issues and help managing your project.
+This helps in automating issues and help managing your project. We will use these workflows to traverse through the workshop.
 
 ## Create a new project
    - Open a new tab and go to https://github.com/
