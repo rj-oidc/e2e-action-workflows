@@ -1,0 +1,32 @@
+name: "Issue assigned"
+on:
+  issues:
+    types: [assigned]
+
+jobs:
+  issue-assigned:
+    name: issue assigned
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'feature')
+    steps:
+      - name : Create Design Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.PROJECT_TOKEN }}
+          title: "[Design] ${{ github.event.issue.title }}"
+          body: |
+            Feature : ${{ github.event.issue.title }} #${{ github.event.issue.number }}
+            - [ ] Have a meeting with UX team
+            - [ ] Share Design
+            - [ ] Close Design
+          labels: |
+            design
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name: Create comment on feature issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          token: ${{ secrets.PROJECT_TOKEN }}
+          body: |
+            Design issue created.
