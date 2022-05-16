@@ -13,7 +13,9 @@ This section will focus on setting up the organisation and repository. It will d
 
 This helps in initialising the repository with relevent information which will be used in later part of SDLC.
 
-## Fork e2e-action-workflows repository
+## Create an organisation for yourself
+
+## Fork e2e-action-workflows repository into the org
 
 1. Log into your GitHub account and fork [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle). 
 
