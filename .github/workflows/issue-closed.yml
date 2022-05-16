@@ -1,0 +1,185 @@
+name: "Issue closed"
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  design-issue-closed:
+    name: design issue closed
+    if: contains(github.event.issue.labels.*.name, 'design')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d " " -f 3`
+          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Implementation Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.PROJECT_TOKEN }}
+          title: "[Implementation] ${{ steps.feature.outputs.title }}"
+          body: |
+            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            - [ ] Code
+            - [ ] Push
+          labels: |
+            implement
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name : Create Security Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.PROJECT_TOKEN }}
+          title: "[Security] ${{ steps.feature.outputs.title }}"
+          body: |
+            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            - [ ] Container Scan
+            - [ ] Code Scan
+          labels: |
+            security
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name: Create comment on feature issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.PROJECT_TOKEN }}
+          body: |
+            Implementation issue created.
+            Security issue created.
+            
+  implement-issue-closed:
+    name: implement issue closed
+    if: contains(github.event.issue.labels.*.name, 'implement')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d " " -f 3`
+          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Testing Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.PROJECT_TOKEN }}
+          title: "[Testing] ${{ steps.feature.outputs.title }}"
+          body: |
+            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            - [ ] L2s
+            - [ ] E2E
+          labels: |
+            test
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name: Create comment on feature issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.PROJECT_TOKEN }}
+          body: |
+            Test issue created.
+            
+  test-issue-closed:
+    name: test issue closed
+    if: contains(github.event.issue.labels.*.name, 'test')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d " " -f 3`
+          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Deploy Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.PROJECT_TOKEN }}
+          title: "[Deploy] ${{ steps.feature.outputs.title }}"
+          body: |
+            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            - [ ] Deploy
+          labels: |
+            deploy
+          assignees: ${{ github.event.issue.assignee.login }}
+      - name: Create comment on feature issue3
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.PROJECT_TOKEN }}
+          body: |
+            Deploy issue created.
+            
+  deploy-issue-closed:
+    name: deploy issue closed
+    if: contains(github.event.issue.labels.*.name, 'deploy')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d " " -f 3`
+          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Monitor Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.PROJECT_TOKEN }}
+          title: "[Monitor] ${{ steps.feature.outputs.title }}"
+          body: |
+            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            - [ ] L2s
+            - [ ] E2E
+          labels: |
+            monitor
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name: Create comment on feature issue4
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.PROJECT_TOKEN }}
+          body: |
+            Monitor issue created.         
+
+  monitor-issue-closed:
+    name: monitor issue closed
+    if: contains(github.event.issue.labels.*.name, 'monitor')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d " " -f 3`
+          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name: Close feature issue
+        uses: peter-evans/close-issue@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.PROJECT_TOKEN }}
+          body: |
+            Monitor issue closed
+            Closing the feature
