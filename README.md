@@ -19,6 +19,6 @@
 - [Introduction to YAML: Learn YAML in 5 minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)
 - [GitHub Docs: GitHub Actions](https://docs.github.com/actions)
 - [GitHub Docs: Workflow syntax](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions)
-
+- [Collection of open-source actions](https://github.com/sdras/awesome-actions)
 
 ## [Click here to get started with the workshop]()
