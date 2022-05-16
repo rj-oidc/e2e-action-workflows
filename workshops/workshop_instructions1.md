@@ -6,11 +6,10 @@
 
 # Part 1: Set up your repository using Github Action
 
-Workflow 1 will focus on setting up the repository. It will do the following :
-- Create labels
-- Create issue templates
-- Create Initial Issue
-- Create CODEOWNERS file
+Workflow 1 will focus on setting up the organisation and repository. It will do the following :
+
+1. Setup community health files, as per the [documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
+2. Setup labels for the entire org
 
 This helps in initialising the repository with relevent information which will be used in later part of SDLC.
 
