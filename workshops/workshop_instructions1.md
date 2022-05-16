@@ -49,5 +49,6 @@ Add to Actions secret
     <img width="1269" alt="Screenshot 2022-05-16 at 8 33 38 PM" src="https://user-images.githubusercontent.com/17411453/168623826-eff2dca9-cdff-414a-9e85-8c3203b33fc9.png">
 
 
-## Add init steps : https://github.com/Josh-01/vigilant-waffle/blob/master/workshops/workshop-1/1_initialize-project-management.md 
+## Add init steps : 
+https://github.com/Josh-01/vigilant-waffle/blob/master/workshops/workshop-1/1_initialize-project-management.md 
 
