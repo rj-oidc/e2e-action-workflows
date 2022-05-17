@@ -130,18 +130,14 @@ Once workflow runs successfully, you can see that a new issue is created. A comm
 Since we have the previous workflow (`add-to-project.yml`) as well, the new issue is added to project as well.
 
 ### 2. On issue closure.
-   We will now add automation whenever an issue is closed.
+   We will now have automation whenever issues are closed. This automation will create issue(s) when an issue part of a feature is closed. This will automate the SDLC of the feature.
 
-1. Create a new workflow file named `issue-closed.yml` in `.github/workflows` folder.
+![Screenshot 2022-05-17 at 11 13 23 PM](https://user-images.githubusercontent.com/17411453/168876861-4b7d2a2a-8044-4d0f-9da2-8f42f950e215.png)
 
-Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is closed.
-[yaml](/workshops/workflows/issue-closed.yml)
-2. Copy this and paste in `issue-closed.yml` file.
-3. This workflow adds automation which we will see through the workshop.
-
+1. Open [issue-assigned.yml](/.github/workflows/issue-assigned.yml) in new tab.
+2. Uncomment the issue trigger logic. The workflow has logic to create issues in SDLC manner whenever prior issue is closed.
 
 Now we will close the design issue. This will create a two new issues and add a comment in feature issue.
-
 
 
 ## Exercise 2 : Step 1
