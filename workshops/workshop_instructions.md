@@ -15,7 +15,7 @@ This helps in initialising the organization and repository with relevent informa
 
 ## Create an organization
 
-1. Log into your GitHub account and create an organization for yourself where we will create/fork all workshop related repos.
+1. Log into your GitHub account and create an organization for yourself where we will create/fork all workshop related repos. Eg : `TauhidWorkshopOrg`.
 
 ## Fork e2e-action-workflows repository into the org
 
@@ -23,7 +23,7 @@ This helps in initialising the organization and repository with relevent informa
 
     - Open the [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle) in a browser
     - Sign in to your GitHub account from top right if not signed-in already.
-    - Fork this repository into your user account (using `Fork` option on top right of the screen). This repository will get forked as `<username>/e2e-action-workflows`
+    - Fork this repository into your user account (using `Fork` option on top right of the screen). This repository will get forked as `<org_name>/e2e-action-workflows`
     
     This repo contains a starter project required in the workshop. It also contains the instructions for the workshop.
   
