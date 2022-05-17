@@ -1,6 +1,6 @@
 # Constellation Workshop Instructions: End to end software workflows with GitHub Actions
 
-<------image here----->
+![Screenshot 2022-05-17 at 10 05 52 PM](https://user-images.githubusercontent.com/17411453/168863150-ce397bf3-1c1b-464f-8039-2cfd38b11e46.png)
 
 :bookmark: The following instructions will take on the assumption that you will be completing the steps on the GitHub UI. Feel free to use the terminal or any other GUIs you are comfortable with.
 
