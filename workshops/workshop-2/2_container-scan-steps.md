@@ -1,9 +1,11 @@
 ## Setup container scanning
 
-### 1. Create workflow
-   - Build a docker image
-   - Scan the docker image for any security vulnerabilities
-   - Push to registry - optional
+As part of our CD process, we might be creating docker containers in our repo, from our repo code. 
+The container creation process allows us to install other dependencies into the container, that are required for our apps to run.
+This is one place where vnew ulnerabilities could be introduced, which the code-scanning process might miss.
+In this section we see how that can be identified using an action workflow.
+
+### 1. Create the workflow
 
 ```
 name: Container scan
@@ -45,5 +47,5 @@ jobs:
 
 ## 📚 Resources : 
 
-- https://github.com/azure/container-scan#readme
-- https://nvd.nist.gov/vuln
+- Action used: https://github.com/azure/container-scan#readme
+- Reference for container vulnerabilities: https://nvd.nist.gov/vuln
