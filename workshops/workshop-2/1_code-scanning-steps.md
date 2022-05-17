@@ -6,8 +6,8 @@ to find security vulnerabilities and coding errors.
 ```
 
 In this section, we will go through
- 1. how to setup a code-scannning workflow using CodeQL (other are other tools for code-scanning that can be used in workflows too)
- 2. where to check vulnerabilites identified by the workflow
+ 1. how to setup a code-scannning workflow using CodeQL (there are other tools for code-scanning that can be used in GH workflows too)
+ 2. where to check vulnerabilites identified by the tool
 
 ### 1. Go to Security tab of your repo :
 <img width="345" alt="image" src="https://user-images.githubusercontent.com/58063491/168086730-354d4ba3-97a9-482f-a047-f8b762f8adb8.png">
