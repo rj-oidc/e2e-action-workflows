@@ -11,13 +11,15 @@ This section will focus on setting up the organisation and repository. It will d
 1. Setup community health files, as per the [documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
 2. Setup labels for the entire org
 
-This helps in initialising the repository with relevent information which will be used in later part of SDLC.
+This helps in initialising the organization and repository with relevent information which would be used in later part of SDLC.
 
-## Create an organisation for yourself
+## Create an organization
+
+1. Log into your GitHub account and create an organization for yourself where we will create/fork all workshop related repos.
 
 ## Fork e2e-action-workflows repository into the org
 
-1. Log into your GitHub account and fork [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle). 
+1. Fork [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle). 
 
     - Open the [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle) in a browser
     - Sign in to your GitHub account from top right if not signed-in already.
@@ -40,14 +42,14 @@ We need a PAT token with required permissions for actions to create issues, labe
    - Copy the token. Keep the tab open in case you loose the token. 
 
 Add to Actions secret
-  - In your forked repository, go to `Settings`
+  - In your organization, go to `Settings`
   - Click on `Secrets` option listed on the left side. Then click on `Actions` option.
-  - Click on `New repository secret`
+  - Click on `New organization secret`
   - In Value text box, paste the PAT token generated in the previous step.
   - In Name, enter `ACTIONS_TOKEN`
   - Click on `Add Secret`
   - You can see that the secret is added.
-    <img width="1269" alt="Screenshot 2022-05-16 at 8 33 38 PM" src="https://user-images.githubusercontent.com/17411453/168623826-eff2dca9-cdff-414a-9e85-8c3203b33fc9.png">
+    <img width="992" alt="image" src="https://user-images.githubusercontent.com/58063491/168744641-32ec16ed-a93a-469d-ae94-59c132b7fdbc.png">
 
 
 ## Add init steps : 
