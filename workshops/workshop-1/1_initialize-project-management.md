@@ -20,4 +20,4 @@
  ### Resources : 
 - https://github.com/actions-automation 
 
-[Automate project management](2_repo-project-management.md)
+[Part 2 : Automate project management](2_repo-project-management.md)
