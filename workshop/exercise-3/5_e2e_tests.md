@@ -21,7 +21,7 @@ We first setup the 3 repos and then see how tests can be run and failures traced
 ### React app [Frontend]
 1. Fork the repository https://github.com/JysinTestOrg/React-app
 2. Add the URL of the node app deployed from the previous step to the `.env.staging` file
-4. Uncomment the workflow until the `Deploy to staging environment` job
+4. Uncomment the workflow until (including) the `Deploy to staging environment` job
 5. Click on Actions tab and enable actions in the forked repository.
 6. Trigger the workflow. The staging pages website should be live and running -> Settings -> Pages
 
@@ -30,13 +30,13 @@ We first setup the 3 repos and then see how tests can be run and failures traced
 
 ### Test suite
 1. Fork the repository https://github.com/JysinTestOrg/e2e-test-suite
-2. Update the TODO in src/tests/text-check.e2e.js to point to the staging URL of the frontend application.
+2. Update the TODO in `src/tests/text-check.e2e.js` to point to the staging URL of the frontend application.
 3. Uncomment the workflow.
 4. Trigger the same.
 
 ### Node app
 1. Go to the repository with the node application.
-2. Uncomment the trigger_e2e_tests job in the `node.yml` workflow file and fix the TODOs.
+2. Uncomment the `trigger_e2e_tests` job in the `node.yml` workflow file and fix the TODOs.
 3. Commit the file.
 4. Make any changes to the node server’s code. The workflow run will deploy the app to staging environment and then trigger the E2E test suite.
 
