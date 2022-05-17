@@ -11,40 +11,20 @@ This helps in automating issues and managing your project. We will use these wor
    - Open a new tab and go to your org
    - Go to `Projects` tab
    - Click on `Projects (Beta)`
-   - Click on the `New Project` dropdown and Select `New Project (Beta).
+   - Click on the `New Project` dropdown and Select `New Project (Beta)`.
    - A new project will be created. Copy url of the project.
 
 ## Automate Project management
 
 Now we will automate issue addition to project using GitHub Workflows. 
 We will use a workflow which will add issue to the project whenever a new issue is created.
+1. Open the `<new_org_name>/e2e-action-workflows` forked repository.
+2. Open [add-to-project.yml](/.github/workflows/add-to-project.yml) in new tab.
+3. Replace `<PROJECT_URL>` with URL of project created in previous step.
+4. This workflow is configured to be trigerred whenever a new issue is created.
+5. Next, the `actions/add-to-project` action is used for adding issue to project.
 
-1. Create a new workflow file named `add-to-project.yml` in `.github/workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
-2. Add the name of the workflow as "Automate project management"
-3. Add triggers for the workflow as `issues` on `opened` type.
-Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is created.
-```yaml 
-# Add issue to project board
-name: Automate project management
-on:
-  issues:
-    types: [opened]
-
-```
-4. Next we will use the `actions/add-to-project` action for adding issue to project
-```yaml
-jobs:
-  add-to-project:
-    name: Add issue to project
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/add-to-project@main
-        with:
-          project-url: ${{ secrets.PROJECT_URL }}
-          github-token: ${{ secrets.ACTIONS_TOKEN }}
-```
-
-**Overall workflow looks like [this](/workshops/workflows/add-to-project.yml) :**
+**Overall workflow looks like this:
 ```yaml
 # Add issue to project board
 
@@ -60,12 +40,12 @@ jobs:
     steps:
       - uses: actions/add-to-project@main
         with:
-          project-url: ${{ secrets.PROJECT_URL }}
+          project-url: https://github.com/orgs/<org_name>/projects/1
           github-token: ${{ secrets.ACTIONS_TOKEN }}
 ```
 
 ### Create a new issue.
-(Incase issues tab is not present in your repo. Enable issues from settings)
+(In case issues tab is not present in your repo. Enable issues from settings)
 1. Go to issues tab in your forked repo.
 2. Click on `New issue`
 3. Enter title : `E2E Action Workflows`
@@ -83,13 +63,14 @@ Once workflow runs successfully, you can see that the issue is getting reflected
 ## Issue automation
 
 ### 1. On issue assignment.
-   We will now write a workflow which gets triggered whenever an issue with label `feature` is assigned to some one. 
-   The workflow will create a new issue with `design` label. It will also comment on the `feature` issue.
+   We will now use a workflow which gets triggered whenever a feature issue is assigned to someone. 
+   The workflow will create a new design issue. A comment will also be added in feature issue to track the progress.
+   
+   ![Screenshot 2022-05-17 at 11 08 04 PM](https://user-images.githubusercontent.com/17411453/168875985-b49b3a23-a4fc-4898-a2b6-e9e3f06aeac3.png)
 
-1. Create a new workflow file named `issue-assigned.yml` in `.github/workflows` folder.
-2. Add the name of the workflow as "Issue assigned"
-3. Add triggers for the workflow as `issues` on `assigned` type.
-Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is created.
+
+1. Open [issue-assigned.yml](/.github/workflows/issue-assigned.yml) in new tab.
+Following is the yaml for file. This workflow will get trigerred whenever a new issue is created.
 ```yaml 
 # Triggers when an issue is assigned.
 name: "Issue assigned"
@@ -97,7 +78,7 @@ on:
   issues:
     types: [assigned]
 ```
-4. We want to run the job when an issue with feature tag is assigned to someone. For this we will get deatils from `github.event` and check if `feature` label is present.
+4. We want to run the job only when feature issue is assigned to someone. For this we get deatils from `github.event` and check if `feature` label is present.
 ```yaml
 jobs:
   issue-assigned:
@@ -105,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.issue.labels.*.name, 'feature')
 ```
-6.  Next we will use the `actions-ecosystem/action-create-issue@v1` and `peter-evans/create-or-update-comment@v2` action for creating new issue and commenting on feature issue. Whole workflow looks like [this](/workshops/workflows/issue-assigned.yml) :
+6.  Next we use the `actions-ecosystem/action-create-issue@v1` and `peter-evans/create-or-update-comment@v2` actions for creating new issue and commenting on feature issue. Whole workflow looks like this :
 ```yaml
 # Triggers when an issue is assigned.
 
@@ -144,9 +125,8 @@ jobs:
 ```
 
 
-
 Now go ahead and assign the issue created in last step(E2E Action Workflows) to yourself.
-Once workflow runs successfully, you can see that a new issue is created. A comment in feature issue is also added.
+Once workflow runs successfully, you can see that a new issue is created. A comment in feature issue is also added. 
 Since we have the previous workflow (`add-to-project.yml`) as well, the new issue is added to project as well.
 
 ### 2. On issue closure.
