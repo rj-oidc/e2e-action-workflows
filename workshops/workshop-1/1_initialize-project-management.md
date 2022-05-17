@@ -9,7 +9,7 @@
        - Create issue templates
        - Create CODEOWNERS file : [doc](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-file-location)
     
-3. ####  Create labels for entire org
+3. ####  Create labels for all (or some) repositories across the organisation
 
   - To make sure everything works, you'll need to ensure a personal access token with the `public_repository` scope is available via the `BOT_TOKEN` environment variable. The account used to create the PAT must also have permission to edit labels on the repository you want to manage.
    `Settings -> Developer Setttings -> Personal Access Tokens -> Legacy tokens `   
@@ -18,6 +18,13 @@
 -> <img width="766" alt="image" src="https://user-images.githubusercontent.com/58063491/168667077-7d9e514c-4a48-4176-9ca8-97544905208d.png">
 
   - Keep the generated PAT page open, copy the value and create a secret in the `.github` repo called `BOT_TOKEN`.
+      - In your forked repository, go to `Settings`
+      - Click on `Secrets` option listed on the left side. Then click on `Actions` option.
+      - Click on `New repository secret`
+      - In Value text box, paste the PAT token generated in the previous step.
+      - In Name, enter `BOT_TOKEN`
+      - Click on `Add Secret`
+      - You can see that the secret is added.
  
   - `manage-your-labels` uses a config file stored at [manage-your-labels.yml](https://github.com/Josh-01/vigilant-waffle/blob/master/.github/manage-your-labels.yml) within the top-level directory of the .github repo for label management.
 
