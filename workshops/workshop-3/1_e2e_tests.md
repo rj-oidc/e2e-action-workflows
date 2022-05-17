@@ -3,11 +3,10 @@
 ### Node app [Backend]
 1. Create a Heroku account for free [here](https://signup.heroku.com/).
 2. For the repository https://github.com/JysinTestOrg/node-app
-3. Reuse ACTIONS_TOKEN
-4. Retrieve the API key from your heroku `account settings` and click on Reveal button under the `API Key` section.
+3. Retrieve the API key from your heroku `account settings` and click on Reveal button under the `API Key` section.
    Store the API key as a repository secret in the forked repository with the name `HEROKU_API_KEY`
-5. Uncomment the yaml until (including) the `deploy-staging job` and complete the TODOs accordingly.
-6. Click on Actions tab and click the I understand my workflows, go ahead and enable them button.
+4. Uncomment the yaml until (including) the `deploy-staging job` and complete the TODOs accordingly.
+5. Click on Actions tab and click the I understand my workflows, go ahead and enable them button.
 <img width="613" alt="image" src="https://user-images.githubusercontent.com/58063491/168782305-85addca8-3f79-4ce3-b28e-3378964bde47.png">
 <img width="630" alt="image" src="https://user-images.githubusercontent.com/58063491/168782379-37db8ec7-deb9-4220-a950-25c65ed56989.png">
 
