@@ -1,7 +1,8 @@
 ## Setup Code Scanning (using CodeQL)
 
 ```
-Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. 
+Code scanning is a feature that you use to analyze the code in a GitHub repository 
+to find security vulnerabilities and coding errors. 
 ```
 
 In this section, we will go through
