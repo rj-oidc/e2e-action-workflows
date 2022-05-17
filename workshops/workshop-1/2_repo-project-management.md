@@ -98,7 +98,7 @@ Once workflow runs successfully, you can see that the issue is getting reflected
    We will now write a workflow which gets triggered whenever an issue with label `feature` is assigned to some one. 
    The workflow will create a new issue with `design` label. It will also comment on the `feature` issue.
 
-1. Create a new workflow file named `issue-assigned.yml` in `.github\workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
+1. Create a new workflow file named `issue-assigned.yml` in `.github\workflows` folder.
 2. Add the name of the workflow as "Issue assigned"
 3. Add triggers for the workflow as `issues` on `assigned` type.
 Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is created.
@@ -164,7 +164,7 @@ Since we have the previous workflow (`add-to-project.yml`) as well, the new issu
 ### 2. On issue closure.
    We will now add automation whenever an issue is closed.
 
-1. Create a new workflow file named `issue-closed.yml` in `.github\workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
+1. Create a new workflow file named `issue-closed.yml` in `.github\workflows` folder.
 
 Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is closed.
 [yaml](/workshops/workflows/issue-closed.yml)
