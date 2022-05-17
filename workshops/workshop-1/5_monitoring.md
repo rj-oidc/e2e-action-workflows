@@ -1,6 +1,6 @@
 # Set up monitoring for issues.
 
-Part 5 will focus on bug automation and notifications. Whenever a new issue with bug title is created, tt will do the following :
+Part 5 will focus on bug automation and notifications. Whenever a new issue with bug title is created, the workflow will :
 - Add a `bug` label to the issue.
 - Assign the issue to the DRI (Directly Responsible Individual)
 - Optional : Send a message to slack channel.
