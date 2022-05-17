@@ -16,7 +16,7 @@ This helps in notifying the individual and quick response time for fixing the is
 
 ## Create a new workflow
 
-1. Create a new workflow file named `bug-added.yml` in `.github\workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
+1. Create a new workflow file named `bug-added.yml` in `.github\workflows` folder.
 2. Add the following yml. 
 ```yml
 # Triggers whenever a new bug is added 
