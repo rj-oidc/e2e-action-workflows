@@ -12,8 +12,7 @@
 
 ### React app [Frontend]
 1. Fork the repository https://github.com/JysinTestOrg/React-app
-2. Add the URL of the heroku staging app to the `.env.staging` file
-3. Create a PAT token with the public_repo scope and keep it handy. Store it as a repository secret with the name REPO_PUSH_TOKEN
+2. Add the URL of the node app deployed from the previous step to the `.env.staging` file
 4. Uncomment the workflow until the `Deploy to staging environment` job
 5. Click on Actions tab and enable actions in the forked repository.
 6. Trigger the workflow. The staging pages website should be live and running -> Settings -> Pages
@@ -29,7 +28,7 @@
 
 ### Node app
 1. Go to the repository with the node application.
-2. Uncomment the trigger_e2e_tests job in the node.yml workflow file and fix the TODOs.
+2. Uncomment the trigger_e2e_tests job in the `node.yml` workflow file and fix the TODOs.
 3. Commit the file.
 4. Make any changes to the node server’s code. The workflow run will deploy the app to staging environment and then trigger the E2E test suite.
 
