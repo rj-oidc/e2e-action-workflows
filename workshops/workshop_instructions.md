@@ -53,5 +53,5 @@ Add to Actions secret
 
 
 ## Add init steps : 
-https://github.com/Josh-01/vigilant-waffle/blob/master/workshops/workshop-1/1_initialize-project-management.md 
+[Initialize the repos](workshops/workshop-1/1_initialize-project-management.md)
 
