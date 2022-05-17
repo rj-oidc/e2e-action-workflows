@@ -22,7 +22,7 @@
 <img width="1029" alt="image" src="https://user-images.githubusercontent.com/58063491/168782554-1804e8a1-3159-42f0-b083-023af76cb9b9.png">
 
 ### Test suite
-1. Fork the repository https://github.com/ganes-constellation/e2e-test-suite
+1. Fork the repository https://github.com/JysinTestOrg/e2e-test-suite
 2. Update the TODO in src/tests/text-check.e2e.js to point to the staging URL of the frontend application.
 3. Uncomment the workflow.
 4. Trigger the same.
