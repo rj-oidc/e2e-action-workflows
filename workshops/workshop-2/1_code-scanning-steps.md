@@ -1,5 +1,13 @@
 ## Setup Code Scanning (using CodeQL)
 
+```
+Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. 
+```
+
+In this section, we will go through
+ 1. how to setup a code-scannning workflow using CodeQL (other are other tools for code-scanning that can be used in workflows too)
+ 2. where to check vulnerabilites identified by the workflow
+
 ### 1. Go to Security tab of your repo :
 <img width="345" alt="image" src="https://user-images.githubusercontent.com/58063491/168086730-354d4ba3-97a9-482f-a047-f8b762f8adb8.png">
 
@@ -13,9 +21,9 @@
 <img width="686" alt="image" src="https://user-images.githubusercontent.com/58063491/168087070-4b026678-49c9-4bad-8902-db52d94f63e3.png">
 
 #### Points to note
-  - when is it triggered
-  - languages of the repo
-  - Which branch is checkout
+  - when is it triggered - scheduled, or on push
+  - languages of the repo - to decide which tool to use
+  - Which branch is checkout - to ensure we scan the required branches
 
 ### 5. Commit and run
 
