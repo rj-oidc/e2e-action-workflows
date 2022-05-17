@@ -13,7 +13,7 @@ This helps in automating issues and help managing your project. We will use thes
    - Go to `Your Projects`
    - Click on `Projects (Beta)`
    - Click on the `New Project` button.
-   - Copy url of the project (without views part).
+   - Copy url of the project.
    
 Store project url in actions secrets.
   - In your forked repository, go to `Settings`
