@@ -12,10 +12,10 @@ jobs:
       - name : Create Design Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           title: "[Design] ${{ github.event.issue.title }}"
           body: |
-            Feature : ${{ github.event.issue.title }} #${{ github.event.issue.number }}
+            #${{ github.event.issue.number }} Feature : ${{ github.event.issue.title }} 
             - [ ] Have a meeting with UX team
             - [ ] Share Design
             - [ ] Close Design
@@ -27,6 +27,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.issue.number }}
-          token: ${{ secrets.PROJECT_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
             Design issue created.
+        
