@@ -41,7 +41,7 @@ jobs:
 
 ### 4. Run workflow with `DRY_RUN: true`
 ### 5. Run workflow with `DRY_RUN: false`
-### 6. Test copied secrets
+### 6. Test copied secrets (incomplete)
 Run workflow `print_test_secrets.yml` in the repository created in step 1 above , and verify they were correctly copied.
 
 
