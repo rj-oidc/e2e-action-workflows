@@ -1,6 +1,6 @@
 # Set up your repository using Github Action
 
-Part 2 will focus on issue automation and project management. It will do the following :
+This section will focus on issue automation and project management. It will do the following :
 - Add issue to project board whenever a new issue is created.
 - When an issue is assigned to a user, create another issue.
 - When an issue is closed, create new issues and update old issue.
