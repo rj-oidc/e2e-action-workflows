@@ -23,7 +23,8 @@ We first setup the 3 repos and then see how tests can be run and failures traced
 2. Add the URL of the node app deployed from the previous step to the `.env.staging` file
 4. Uncomment the workflow until (including) the `Deploy to staging environment` job
 5. Click on Actions tab and enable actions in the forked repository.
-6. Trigger the workflow. The staging pages website should be live and running -> Settings -> Pages
+6. Trigger the workflow. 
+7. Go to Settings -> Pages -> The staging pages website should be live and running when banner turns green.
 
 <img width="1154" alt="image" src="https://user-images.githubusercontent.com/58063491/168782225-4bce768a-f5b5-4a57-b9e4-1638640e79e1.png">
 <img width="1029" alt="image" src="https://user-images.githubusercontent.com/58063491/168782554-1804e8a1-3159-42f0-b083-023af76cb9b9.png">
