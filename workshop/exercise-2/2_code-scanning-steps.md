@@ -33,3 +33,7 @@ In this section, we will go through
 ## 📚 Resources:
    - [Tools for code scanning - GH docs](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning#about-tools-for-code-scanning)
    - [Code scanning configs - GH docs](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)
+
+
+## Exercise 2 : Step 2
+[Next](./3_container-scan-steps.md)

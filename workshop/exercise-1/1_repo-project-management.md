@@ -173,3 +173,7 @@ Following is the yaml for the above steps. 💡 This workflow will get trigerred
 
 
 Now we will close the design issue. This will create a two new issues and add a comment in feature issue.
+
+
+## Exercise 2 : Step 1
+[Security and Secrets Management](../exercise-2/2_code-scanning-steps.md)

@@ -52,3 +52,6 @@ jobs:
 ## 📚 Resources :
  - [Action used above](https://github.com/google/secrets-sync-action#readme)
  - [Action for secret management on AWS](https://github.com/say8425/aws-secrets-manager-actions#readme)
+
+## Exercise 3 :
+[E2E testing](../exercise-3/5_e2e_tests.md)

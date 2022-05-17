@@ -49,3 +49,7 @@ jobs:
 
 - Action used: https://github.com/azure/container-scan#readme
 - Reference for container vulnerabilities: https://nvd.nist.gov/vuln
+
+
+## Exercise 2 : Step 3
+[Next](./4_secrets-management.md)
