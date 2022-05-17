@@ -21,4 +21,4 @@
 - [GitHub Docs: Workflow syntax](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions)
 - [Collection of open-source actions](https://github.com/sdras/awesome-actions)
 
-## [Click here to get started with the workshop]()
+## [Click here to get started with the workshop](workshops/workshop_instructions.md)
