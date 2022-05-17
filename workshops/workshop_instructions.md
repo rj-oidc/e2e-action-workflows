@@ -6,24 +6,27 @@
 
 # Set up
 
-This section will focus on setting up the organisation and repository. It will do the following :
-
-1. Setup community health files, as per the [documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
-2. Setup labels for the entire org
-
-This helps in initialising the organization and repository with relevent information which would be used in later part of SDLC.
+This section will focus on setting up the organisation and repository which we will use for the workshop. 
 
 ## Create an organization
 
-1. Log into your GitHub account and create an organization for yourself where we will create/fork all workshop related repos. Eg : `TauhidWorkshopOrg`.
-
+1. Log into your GitHub account and create an organization for yourself where we will create/fork all workshop related repos. Eg : `E2EAuto`.
+ -> Go to top right corner -> Your organizations
+<img width="442" alt="image" src="https://user-images.githubusercontent.com/58063491/168848388-f3d73027-7bd9-4b47-881d-de8cb37e55dd.png">
+ -> New organization
+<img width="897" alt="image" src="https://user-images.githubusercontent.com/58063491/168848466-03e598b5-2a06-4468-a709-0c2552fb1249.png">
+ -> Choose a plan -> Choose Free 
+<img width="1424" alt="image" src="https://user-images.githubusercontent.com/58063491/168848586-4d90be47-d7d2-4303-ac38-e7ba7398e54f.png">
+ -> Create
+ 
+ 
 ## Fork e2e-action-workflows repository into the org
 
 1. Fork [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle). 
 
-    - Open the [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle) in a browser
+    - Open the [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle) in a new tab
     - Sign in to your GitHub account from top right if not signed-in already.
-    - Fork this repository into your user account (using `Fork` option on top right of the screen). This repository will get forked as `<org_name>/e2e-action-workflows`
+    - Fork this repository into the new org (using `Fork` option on top right of the screen). This repository will get forked as `<new_org_name>/e2e-action-workflows`
     
     This repo contains a starter project required in the workshop. It also contains the instructions for the workshop.
   
@@ -52,6 +55,6 @@ Add to Actions secret
     <img width="992" alt="image" src="https://user-images.githubusercontent.com/58063491/168744641-32ec16ed-a93a-469d-ae94-59c132b7fdbc.png">
 
 
-## Add init steps : 
-[Initialize the repos](workshop-1/1_initialize-project-management.md)
+## Exercise 1 :
+[Project Management Automation](workshops/workshop-1/1_repo-project-management.md)
 
