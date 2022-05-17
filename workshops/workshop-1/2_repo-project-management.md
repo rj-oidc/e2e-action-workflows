@@ -31,7 +31,7 @@ Store project url in actions secrets.
 Now we will automate issue addition to project using GitHub Workflows. 
 We will write a workflow which will add issue to the project whenever a new issue is created.
 
-1. Create a new workflow file named `add-to-project.yml` in `.github\workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
+1. Create a new workflow file named `add-to-project.yml` in `.github/workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
 2. Add the name of the workflow as "Automate project management"
 3. Add triggers for the workflow as `issues` on `opened` type.
 Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is created.
