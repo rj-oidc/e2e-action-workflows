@@ -56,5 +56,5 @@ Add to Actions secret
 
 
 ## Exercise 1 :
-[Project Management Automation](workshops/workshop-1/1_repo-project-management.md)
+[Project Management Automation](workshop-1/1_repo-project-management.md)
 
