@@ -1,35 +1,23 @@
-# Set up your repository using Github Action
+# Project Management and issue automation
 
-This section will focus on issue automation and project management. It will do the following :
-- Add issue to project board whenever a new issue is created.
-- When an issue is assigned to a user, create another issue.
-- When an issue is closed, create new issues and update old issue.
+This section will focus on issue automation and project management. With the help of issues we will show how GitHub Actions can be used in various part of SDLC. We will use workflows which will :
+- Add an issue to a project board whenever a new issue is created. This helps in tracking the issue.
+- When a `feature` issue is assigned to a user, create a `design` issue.
+- When an issue realted to feature is closed, create new issue(s) and update the `feature` issue.
 
-This helps in automating issues and help managing your project. We will use these workflows to traverse through the workshop.
+This helps in automating issues and managing your project. We will use these workflows to traverse through the workshop.
 
 ## Create a new project
-   - Open a new tab and go to https://github.com/
-   - Click your profile icon on top right
-   - Go to `Your Projects`
+   - Open a new tab and go to your org
+   - Go to `Projects` tab
    - Click on `Projects (Beta)`
-   - Click on the `New Project` button.
-   - Copy url of the project.
-   
-Store project url in actions secrets.
-  - In your forked repository, go to `Settings`
-  - Click on `Secrets` option listed on the left side. Then click on `Actions` option.
-  - Click on `New repository secret`
-  - In **Value** text box, paste the project url from the previous step.
-  - In **Name**, enter `PROJECT_URL`
-  - Click on `Add Secret`
-  - You can see that the secret is added.
-  
-  Note : Project url is not a secret. We are storing it here for easy reference in action workflows. 
+   - Click on the `New Project` dropdown and Select `New Project (Beta).
+   - A new project will be created. Copy url of the project.
 
 ## Automate Project management
 
 Now we will automate issue addition to project using GitHub Workflows. 
-We will write a workflow which will add issue to the project whenever a new issue is created.
+We will use a workflow which will add issue to the project whenever a new issue is created.
 
 1. Create a new workflow file named `add-to-project.yml` in `.github/workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
 2. Add the name of the workflow as "Automate project management"
@@ -173,6 +161,7 @@ Following is the yaml for the above steps. 💡 This workflow will get trigerred
 
 
 Now we will close the design issue. This will create a two new issues and add a comment in feature issue.
+
 
 
 ## Exercise 2 : Step 1
