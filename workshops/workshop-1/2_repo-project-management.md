@@ -56,7 +56,7 @@ jobs:
           github-token: ${{ secrets.ACTIONS_TOKEN }}
 ```
 
-**Overall workflow looks like this :**
+**Overall workflow looks like [this](/workshops/workflows/add-to-project.yml) :**
 ```yaml
 # Add issue to project board
 
