@@ -53,5 +53,5 @@ Add to Actions secret
 
 
 ## Add init steps : 
-[Initialize the repos](workshops/workshop-1/1_initialize-project-management.md)
+[Initialize the repos](workshop-1/1_initialize-project-management.md)
 
