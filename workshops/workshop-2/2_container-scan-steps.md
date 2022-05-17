@@ -2,7 +2,7 @@
 
 As part of our CD process, we might be creating docker containers in our repo, from our repo code. 
 The container creation process allows us to install other dependencies into the container, that are required for our apps to run.
-This is one place where vnew ulnerabilities could be introduced, which the code-scanning process might miss.
+This is one place where new vulnerabilities could be introduced, which the code-scanning process might miss.
 In this section we see how that can be identified using an action workflow.
 
 ### 1. Create the workflow
