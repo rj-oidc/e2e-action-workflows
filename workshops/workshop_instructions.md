@@ -13,10 +13,11 @@ This section will focus on setting up the organisation and repository which we w
 1. Log into your GitHub account and create an organization for yourself where we will create/fork all workshop related repos. Eg : `E2EAuto`.
  -> Go to top right corner -> Your organizations
 <img width="442" alt="image" src="https://user-images.githubusercontent.com/58063491/168848388-f3d73027-7bd9-4b47-881d-de8cb37e55dd.png">
- -> New organization
+ -> `New organization`
 <img width="897" alt="image" src="https://user-images.githubusercontent.com/58063491/168848466-03e598b5-2a06-4468-a709-0c2552fb1249.png">
- -> Choose a plan -> Choose Free 
+ -> Choose a plan -> Choose **Free**
 <img width="1424" alt="image" src="https://user-images.githubusercontent.com/58063491/168848586-4d90be47-d7d2-4303-ac38-e7ba7398e54f.png">
+ 
  -> Create
  
  
