@@ -16,7 +16,7 @@
 3. Create a PAT token with the public_repo scope and keep it handy. Store it as a repository secret with the name REPO_PUSH_TOKEN
 4. Uncomment the workflow until the `Deploy to staging environment` job
 5. Click on Actions tab and enable actions in the forked repository.
-6. Trigger the workflow. The staging pages website should be live and running -> Settings 
+6. Trigger the workflow. The staging pages website should be live and running -> Settings -> Pages
 
 <img width="1154" alt="image" src="https://user-images.githubusercontent.com/58063491/168782225-4bce768a-f5b5-4a57-b9e4-1638640e79e1.png">
 <img width="1029" alt="image" src="https://user-images.githubusercontent.com/58063491/168782554-1804e8a1-3159-42f0-b083-023af76cb9b9.png">
