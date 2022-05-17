@@ -1,9 +1,9 @@
 ### Initialization
 
-1. #### Fork the repo : https://github.com/actions-automation/.github  ( or fork it out from our repo )
+1. #### Fork the repo : [.github](https://github.com/JysinTestOrg/.github)
   
   - `.github` is a special repository for Github-specific community health files, as per the [documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
-  - Initial files: 
+  - Some org-wide files: 
        - Issue templates
        - CODEOWNERS file : [doc](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-file-location)
     
