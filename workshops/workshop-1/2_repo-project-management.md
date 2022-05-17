@@ -167,7 +167,7 @@ Since we have the previous workflow (`add-to-project.yml`) as well, the new issu
 1. Create a new workflow file named `issue-closed.yml` in `.github\workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
 
 Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is closed.
-[yaml](https://raw.githubusercontent.com/Josh-01/vigilant-waffle/master/.github/workflows/issue-assigned.yml)
+[yaml](/workshops/workflows/issue-closed.yml)
 2. Copy this and paste in `issue-closed.yml` file.
 
 
