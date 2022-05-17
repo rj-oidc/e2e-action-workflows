@@ -1,9 +1,9 @@
 # Triggers when an issue is closed
 
-name: "Issue closed"
-on:
-  issues:
-    types: [closed]
+# name: "Issue closed"
+# on:
+#   issues:
+#     types: [closed]
 
 jobs:
   design-issue-closed:
@@ -43,6 +43,7 @@ jobs:
             #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
             - [ ] Container Scan
             - [ ] Code Scan
+            - [ ] Secrets Management
           labels: |
             security
           assignees: ${{ github.event.issue.assignee.login }}
@@ -53,7 +54,7 @@ jobs:
           issue-number: ${{ steps.feature.outputs.number }}
           token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
-            - Design issue closed.
+            - Design completed.
             - Implementation issue created.
             - Security issue created.
             
@@ -79,7 +80,6 @@ jobs:
           title: "[Testing] ${{ steps.feature.outputs.title }}"
           body: |
             #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
-            - [ ] L2s
             - [ ] E2E
           labels: |
             test
@@ -91,6 +91,7 @@ jobs:
           issue-number: ${{ steps.feature.outputs.number }}
           token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
+            Implementation completed.
             Test issue created.
             
   test-issue-closed:
@@ -115,7 +116,8 @@ jobs:
           title: "[Deploy] ${{ steps.feature.outputs.title }}"
           body: |
             #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
-            - [ ] Deploy
+            - [ ] Deploy staging
+            - [ ] Deploy prod
           labels: |
             deploy
           assignees: ${{ github.event.issue.assignee.login }}
@@ -125,6 +127,7 @@ jobs:
           issue-number: ${{ steps.feature.outputs.number }}
           token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
+            Testing Completed
             Deploy issue created.
             
   deploy-issue-closed:
@@ -149,8 +152,8 @@ jobs:
           title: "[Monitor] ${{ steps.feature.outputs.title }}"
           body: |
             #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
-            - [ ] L2s
-            - [ ] E2E
+            - [ ] Monitors created
+            - [ ] DRI's added
           labels: |
             monitor
           assignees: ${{ github.event.issue.assignee.login }}
@@ -161,6 +164,7 @@ jobs:
           issue-number: ${{ steps.feature.outputs.number }}
           token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
+            Deployment Completed
             Monitor issue created.         
 
   monitor-issue-closed:
@@ -184,5 +188,5 @@ jobs:
           issue-number: ${{ steps.feature.outputs.number }}
           token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
-            Monitor issue closed
+            Monitoring completed.
             Closing the feature
