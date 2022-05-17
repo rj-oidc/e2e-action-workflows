@@ -125,9 +125,207 @@ jobs:
 
 
 
-Now go ahead and assign the issue which was created to yourself.
+Now go ahead and assign the issue created in last step(E2E Action Workflows) to yourself.
 Once workflow runs successfully, you can see that a new issue is created. A comment in feature issue is also added.
 Since we have the previous workflow (`add-to-project.yml`) as well, the new issue is added to project as well.
 
 ### 2. On issue closure.
-   Similar to previous 
+   We will now add automation whenever an issue is closed.
+
+1. Create a new workflow file named `issue-closed.yml` in `.github\workflows` folder. (You can also go to `Actions` tab -> `New workflow` and use `Skip this and set up a workflow yourself`, using which you will get a basic workflow template to fill in)
+2. Add the name of the workflow as "Issue closed"
+3. Add triggers for the workflow as `issues` on `closed` type.
+Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is closed.
+<link to yaml>
+```yaml 
+# Triggers when an issue is closed
+
+name: "Issue closed"
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  design-issue-closed:
+    name: design issue closed
+    if: contains(github.event.issue.labels.*.name, 'design')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title and number
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Implementation Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          title: "[Implementation]${{ steps.feature.outputs.title }}"
+          body: |
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
+            - [ ] Code
+            - [ ] Push
+          labels: |
+            implement
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name : Create Security Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          title: "[Security]${{ steps.feature.outputs.title }}"
+          body: |
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
+            - [ ] Container Scan
+            - [ ] Code Scan
+          labels: |
+            security
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name: Create comment on feature issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          body: |
+            - Design issue closed.
+            - Implementation issue created.
+            - Security issue created.
+            
+  implement-issue-closed:
+    name: implement issue closed
+    if: contains(github.event.issue.labels.*.name, 'implement')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title and number
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Testing Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          title: "[Testing] ${{ steps.feature.outputs.title }}"
+          body: |
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
+            - [ ] L2s
+            - [ ] E2E
+          labels: |
+            test
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name: Create comment on feature issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          body: |
+            Test issue created.
+            
+  test-issue-closed:
+    name: test issue closed
+    if: contains(github.event.issue.labels.*.name, 'test')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title and number
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Deploy Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          title: "[Deploy] ${{ steps.feature.outputs.title }}"
+          body: |
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
+            - [ ] Deploy
+          labels: |
+            deploy
+          assignees: ${{ github.event.issue.assignee.login }}
+      - name: Create comment on feature issue3
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          body: |
+            Deploy issue created.
+            
+  deploy-issue-closed:
+    name: deploy issue closed
+    if: contains(github.event.issue.labels.*.name, 'deploy')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title and number
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name : Create Monitor Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          title: "[Monitor] ${{ steps.feature.outputs.title }}"
+          body: |
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
+            - [ ] L2s
+            - [ ] E2E
+          labels: |
+            monitor
+          assignees: ${{ github.event.issue.assignee.login }}
+          
+      - name: Create comment on feature issue4
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          body: |
+            Monitor issue created.         
+
+  monitor-issue-closed:
+    name: monitor issue closed
+    if: contains(github.event.issue.labels.*.name, 'monitor')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Feature title and number
+        id: feature
+        run: |
+          firstline=`echo "${{ github.event.issue.body }}" | head -1`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
+          
+          echo "::set-output name=title::$title"
+          echo "::set-output name=number::$number"
+          
+      - name: Close feature issue
+        uses: peter-evans/close-issue@v2
+        with:
+          issue-number: ${{ steps.feature.outputs.number }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          body: |
+            Monitor issue closed
+            Closing the feature
+```
+
+Now we will close the design issue. This will create a two new issues and add a comment in feature issue.
