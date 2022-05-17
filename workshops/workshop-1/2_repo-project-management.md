@@ -56,6 +56,26 @@ jobs:
           github-token: ${{ secrets.ACTIONS_TOKEN }}
 ```
 
+**Overall workflow looks like this :**
+```yaml
+# Add issue to project board
+
+name: Automate project management
+on:
+  issues:
+    types: [opened]
+    
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: ${{ secrets.PROJECT_URL }}
+          github-token: ${{ secrets.ACTIONS_TOKEN }}
+```
+
 ### Create a new issue.
 (Incase issues tab is not present in your repo. Enable issues from settings)
 1. Go to issues tab in your forked repo.
