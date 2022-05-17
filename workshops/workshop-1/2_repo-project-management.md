@@ -169,6 +169,7 @@ Since we have the previous workflow (`add-to-project.yml`) as well, the new issu
 Following is the yaml for the above steps. 💡 This workflow will get trigerred whenever a new issue is closed.
 [yaml](/workshops/workflows/issue-closed.yml)
 2. Copy this and paste in `issue-closed.yml` file.
+3. This workflow adds automation which we will see through the workshop.
 
 
 Now we will close the design issue. This will create a two new issues and add a comment in feature issue.
