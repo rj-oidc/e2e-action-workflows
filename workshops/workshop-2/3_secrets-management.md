@@ -1,5 +1,7 @@
 ## Secrets management
 
+
+
 ### 1. Create another repo to copy secrets to 
 
 1. Fork the repo : https://github.com/JysinTestOrg/secret-test-repo
@@ -46,5 +48,5 @@ Run workflow `print_test_secrets.yml` in the repository created in step 1 above 
 
 
 ## 📚 Resources :
- - https://github.com/google/secrets-sync-action#readme
- - https://github.com/say8425/aws-secrets-manager-actions#readme
+ - [Action used above](https://github.com/google/secrets-sync-action#readme)
+ - [Action for secret management on AWS](https://github.com/say8425/aws-secrets-manager-actions#readme)
