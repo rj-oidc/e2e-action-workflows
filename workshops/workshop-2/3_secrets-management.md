@@ -1,10 +1,15 @@
 ## Secrets management
 
+GitHub allows us to create secrets on Organization, Repository and Environment levels. 
+However, managing, rotating and keeping track of secrets owned by us across multiple repositories can still be difficult for a user.
 
+Here is a workflow for a specific use-case :
+1. One repository is supposed to contain all the secrets to be used across different repositories by the user.
+2. Workflow will contain a list of secrets and the repositories to copy them to.
+3. We run the workflow and verify that secrets are copied correctly.
 
 ### 1. Create another repo to copy secrets to 
-
-1. Fork the repo : https://github.com/JysinTestOrg/secret-test-repo
+    <your_org_name>/secret-test-repo
  
 ### 2. Create secrets in current repo
    - `GH_TOKEN_SECRET` : Required, Token to use to get repos and write secrets. ${{secrets.GITHUB_TOKEN}} will not work. Only add to above repo.
@@ -43,9 +48,6 @@ jobs:
 
 ### 4. Run workflow with `DRY_RUN: true`
 ### 5. Run workflow with `DRY_RUN: false`
-### 6. Test copied secrets (incomplete)
-Run workflow `print_test_secrets.yml` in the repository created in step 1 above , and verify they were correctly copied.
-
 
 ## 📚 Resources :
  - [Action used above](https://github.com/google/secrets-sync-action#readme)
