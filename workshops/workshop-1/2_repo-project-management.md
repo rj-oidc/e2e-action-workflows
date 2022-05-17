@@ -117,8 +117,20 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.issue.labels.*.name, 'feature')
 ```
-6.  Next we will use the `actions-ecosystem/action-create-issue@v1` and `peter-evans/create-or-update-comment@v2` action for creating new issue and commenting on feature issue.
+6.  Next we will use the `actions-ecosystem/action-create-issue@v1` and `peter-evans/create-or-update-comment@v2` action for creating new issue and commenting on feature issue. Whole workflow looks like [this](/workshops/workflows/issue-assigned.yml) :
 ```yaml
+# Triggers when an issue is assigned.
+
+name: "Issue assigned"
+on:
+  issues:
+    types: [assigned]
+
+jobs:
+  issue-assigned:
+    name: Issue assigned
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'feature')
     steps:
       - name : Create Design Issue
         uses: actions-ecosystem/action-create-issue@v1
