@@ -12,7 +12,7 @@
 - A [GitHub.com account](https://github.com/join) with a [verified e-mail address](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/verifying-your-email-address)
 - Basic understanding of `yaml` syntax
 - Basic understanding of SDLC processes
-- How to create a [GitHub Personal Access Token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) for your account for `public_repo` scope
+- How to create a [GitHub Personal Access Token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) for your account for `repo`, `write:org` and `read:org`  scope
 - Nice to have: experience with Repository creation, Secrets, Containers, Issues, Project Boards, GitHub Actions
 
 ## :books: Resources
