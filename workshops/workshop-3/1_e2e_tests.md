@@ -1,5 +1,13 @@
 ## Setting up end-to-end testing workflow
 
+This section demonstrates how we can perform E2E tests on applicatons with component services in different repositories.
+It consists of 3 repos :
+   1. Node app [Backend]
+   2. React app [Frontend]
+   3. E2E test suite repo
+
+We first setup the 3 repos and then see how tests can be run and failures traced to specific commits.
+
 ### Node app [Backend]
 1. Create a Heroku account for free [here](https://signup.heroku.com/).
 2. For the repository https://github.com/JysinTestOrg/node-app
