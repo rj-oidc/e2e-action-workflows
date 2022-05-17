@@ -1,3 +1,5 @@
+# Triggers when an issue is closed
+
 name: "Issue closed"
 on:
   issues:
@@ -9,12 +11,12 @@ jobs:
     if: contains(github.event.issue.labels.*.name, 'design')
     runs-on: ubuntu-latest
     steps:
-      - name: Get Feature title
+      - name: Get Feature title and number
         id: feature
         run: |
           firstline=`echo "${{ github.event.issue.body }}" | head -1`
-          title=`echo $firstline | cut -d " " -f 3`
-          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
           
           echo "::set-output name=title::$title"
           echo "::set-output name=number::$number"
@@ -22,10 +24,10 @@ jobs:
       - name : Create Implementation Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
-          title: "[Implementation] ${{ steps.feature.outputs.title }}"
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          title: "[Implementation]${{ steps.feature.outputs.title }}"
           body: |
-            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
             - [ ] Code
             - [ ] Push
           labels: |
@@ -35,10 +37,10 @@ jobs:
       - name : Create Security Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
-          title: "[Security] ${{ steps.feature.outputs.title }}"
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          title: "[Security]${{ steps.feature.outputs.title }}"
           body: |
-            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
             - [ ] Container Scan
             - [ ] Code Scan
           labels: |
@@ -49,22 +51,23 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ steps.feature.outputs.number }}
-          token: ${{ secrets.PROJECT_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
-            Implementation issue created.
-            Security issue created.
+            - Design issue closed.
+            - Implementation issue created.
+            - Security issue created.
             
   implement-issue-closed:
     name: implement issue closed
     if: contains(github.event.issue.labels.*.name, 'implement')
     runs-on: ubuntu-latest
     steps:
-      - name: Get Feature title
+      - name: Get Feature title and number
         id: feature
         run: |
           firstline=`echo "${{ github.event.issue.body }}" | head -1`
-          title=`echo $firstline | cut -d " " -f 3`
-          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
           
           echo "::set-output name=title::$title"
           echo "::set-output name=number::$number"
@@ -72,10 +75,10 @@ jobs:
       - name : Create Testing Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           title: "[Testing] ${{ steps.feature.outputs.title }}"
           body: |
-            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
             - [ ] L2s
             - [ ] E2E
           labels: |
@@ -86,7 +89,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ steps.feature.outputs.number }}
-          token: ${{ secrets.PROJECT_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
             Test issue created.
             
@@ -95,12 +98,12 @@ jobs:
     if: contains(github.event.issue.labels.*.name, 'test')
     runs-on: ubuntu-latest
     steps:
-      - name: Get Feature title
+      - name: Get Feature title and number
         id: feature
         run: |
           firstline=`echo "${{ github.event.issue.body }}" | head -1`
-          title=`echo $firstline | cut -d " " -f 3`
-          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
           
           echo "::set-output name=title::$title"
           echo "::set-output name=number::$number"
@@ -108,10 +111,10 @@ jobs:
       - name : Create Deploy Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           title: "[Deploy] ${{ steps.feature.outputs.title }}"
           body: |
-            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
             - [ ] Deploy
           labels: |
             deploy
@@ -120,7 +123,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ steps.feature.outputs.number }}
-          token: ${{ secrets.PROJECT_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
             Deploy issue created.
             
@@ -129,12 +132,12 @@ jobs:
     if: contains(github.event.issue.labels.*.name, 'deploy')
     runs-on: ubuntu-latest
     steps:
-      - name: Get Feature title
+      - name: Get Feature title and number
         id: feature
         run: |
           firstline=`echo "${{ github.event.issue.body }}" | head -1`
-          title=`echo $firstline | cut -d " " -f 3`
-          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
           
           echo "::set-output name=title::$title"
           echo "::set-output name=number::$number"
@@ -142,10 +145,10 @@ jobs:
       - name : Create Monitor Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           title: "[Monitor] ${{ steps.feature.outputs.title }}"
           body: |
-            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }}
             - [ ] L2s
             - [ ] E2E
           labels: |
@@ -156,7 +159,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ steps.feature.outputs.number }}
-          token: ${{ secrets.PROJECT_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
             Monitor issue created.         
 
@@ -165,12 +168,12 @@ jobs:
     if: contains(github.event.issue.labels.*.name, 'monitor')
     runs-on: ubuntu-latest
     steps:
-      - name: Get Feature title
+      - name: Get Feature title and number
         id: feature
         run: |
           firstline=`echo "${{ github.event.issue.body }}" | head -1`
-          title=`echo $firstline | cut -d " " -f 3`
-          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
           
           echo "::set-output name=title::$title"
           echo "::set-output name=number::$number"
@@ -179,7 +182,7 @@ jobs:
         uses: peter-evans/close-issue@v2
         with:
           issue-number: ${{ steps.feature.outputs.number }}
-          token: ${{ secrets.PROJECT_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
             Monitor issue closed
             Closing the feature
