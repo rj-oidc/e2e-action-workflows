@@ -62,4 +62,4 @@ You can configure an approval in the production environment present in the Node-
 This will make sure to pause the deployment to production by asking for an approval from the reviewers.
 ```
 ## Exercise 4 :
-[Monitoring](../exercise-1/6_monitoring.md)
+[Monitoring](../exercise-4/monitoring.md)
