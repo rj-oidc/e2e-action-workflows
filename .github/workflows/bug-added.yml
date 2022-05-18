@@ -1,8 +1,8 @@
 # # Triggers whenever a new bug is added 
-# name: "Assign label and dri"
-# on:
-#   issues:
-#     types: [opened]
+name: "Assign label and dri"
+on:
+  issues:
+    types: []
 
 jobs:
   automate-bug:
