@@ -12,5 +12,5 @@ jobs:
     steps:
       - uses: actions/add-to-project@main
         with:
-          project-url: <PROJECT_URL>
+          project-url: https://github.com/orgs/rj-oidc/projects/1/views/1
           github-token: ${{ secrets.ACTIONS_TOKEN }}
