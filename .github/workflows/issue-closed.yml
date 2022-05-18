@@ -3,7 +3,7 @@
 name: "Issue closed"
 on:
   issues:
-    types: [closed]
+    types: []
 
 jobs:
   design-issue-closed:
