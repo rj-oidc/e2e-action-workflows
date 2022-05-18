@@ -1,6 +1,6 @@
 # Set up monitoring for issues.
 
-Part 5 will focus on bug automation and notifications. Whenever a new issue with bug title is created, the workflow will :
+This exercise will focus on bug automation and notifications. Whenever a new issue with bug title is created, the workflow will :
 - Add a `bug` label to the issue.
 - Assign the issue to the DRI (Directly Responsible Individual)
 - Optional : Send a message to slack channel.
@@ -16,11 +16,13 @@ This helps in notifying the individual and quick response time for fixing the is
 
 ## Create a new workflow
 
-1. Create a new workflow file named `bug-added.yml` in `.github/workflows` folder.
-2. Add the following yml. 
+1. Open [bug-added.yml](/.github/workflows/bug-added.yml) in new tab.
+2. Uncomment the issue trigger logic. 
+3. The workflow has logic to assign the issue to DRI and add a `bug` label.
+
 ```yml
 # Triggers whenever a new bug is added 
-name: "Assign label and codeowner"
+name: "Assign label and dri"
 on:
   issues:
     types: [opened]
@@ -32,13 +34,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name : Get codeowner
-        id : codeowner
+      - name : Get dri
+        id : dri
         shell: bash
         run : |
           ls
-          codeowner=$(cut -d' ' -f1 ./DRI.txt)
-          echo "::set-output name=codeowner::$codeowner"
+          dri=$(cut -d' ' -f1 ./DRI.txt)
+          echo "::set-output name=dri::$dri"
           
       - uses: actions-ecosystem/action-add-labels@v1
         with:
@@ -48,7 +50,7 @@ jobs:
       - uses: actions-ecosystem/action-add-assignees@v1
         with:
           github_token: ${{ secrets.ACTIONS_TOKEN }}
-          assignees: ${{ steps.codeowner.outputs.codeowner }}
+          assignees: ${{ steps.dri.outputs.dri }}
           
 #       - name: Send message to Slack API
 #         uses: archive/github-actions-slack@v2.0.0
