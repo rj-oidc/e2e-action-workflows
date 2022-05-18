@@ -10,7 +10,7 @@ We first setup the 3 repos and then see how tests can be run and failures traced
 
 ### Node app [Backend]
 1. Create a Heroku account for free [here](https://signup.heroku.com/).
-2. For the repository https://github.com/JysinTestOrg/node-app
+2. For the repository https://github.com/GitHubConstellation2022/node-app
 3. Retrieve the API key from your heroku `account settings` and click on Reveal button under the `API Key` section.
    Store the API key as a repository secret in the forked repository with the name `HEROKU_API_KEY`
 4. Uncomment the yaml until (including) the `deploy-staging job` and complete the TODOs accordingly.
@@ -19,7 +19,7 @@ We first setup the 3 repos and then see how tests can be run and failures traced
 <img width="630" alt="image" src="https://user-images.githubusercontent.com/58063491/168782379-37db8ec7-deb9-4220-a950-25c65ed56989.png">
 
 ### React app [Frontend]
-1. Fork the repository https://github.com/JysinTestOrg/React-app
+1. Fork the repository https://github.com/GitHubConstellation2022/React-app
 2. Add the URL of the node app deployed from the previous step to the `.env.staging` file
 4. Uncomment the workflow until (including) the `Deploy to staging environment` job
 5. Click on Actions tab and enable actions in the forked repository.
@@ -30,7 +30,7 @@ We first setup the 3 repos and then see how tests can be run and failures traced
 <img width="1029" alt="image" src="https://user-images.githubusercontent.com/58063491/168782554-1804e8a1-3159-42f0-b083-023af76cb9b9.png">
 
 ### Test suite
-1. Fork the repository https://github.com/JysinTestOrg/e2e-test-suite
+1. Fork the repository https://github.com/GitHubConstellation2022/e2e-test-suite
 2. Update the TODO in `src/tests/text-check.e2e.js` to point to the staging URL of the frontend application.
 3. Uncomment the workflow.
 4. Trigger the same.
