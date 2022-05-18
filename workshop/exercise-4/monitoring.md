@@ -17,7 +17,7 @@ This helps in notifying the individual and quick response time for fixing the is
 ## Create a new workflow
 
 1. Open [bug-added.yml](/.github/workflows/bug-added.yml) in new tab.
-2. Edit the file and add `opened` trigger.
+2. Uncomment the issue trigger and remove workflow_dispatch line.
 3. The workflow has logic to assign the issue to DRI and add a `bug` label.
 
 ```yml
