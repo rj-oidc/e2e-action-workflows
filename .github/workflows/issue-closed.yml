@@ -1,9 +1,9 @@
 # Triggers when an issue is closed
 
-# name: "Issue closed"
-# on:
-#   issues:
-#     types: [closed]
+name: "Issue closed"
+on:
+  issues:
+    types: [closed]
 
 jobs:
   design-issue-closed:
