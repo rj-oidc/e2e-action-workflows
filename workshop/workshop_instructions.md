@@ -23,9 +23,9 @@ This section will focus on setting up the organisation and repository which we w
  
 ## Fork e2e-action-workflows repository into the org
 
-1. Fork [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle). 
+1. Fork [e2e-action-workflows](https://github.com/GitHubConstellation2022/e2e-action-workflows). 
 
-    - Open the [e2e-action-workflows](https://github.com/Josh-01/vigilant-waffle) in a new tab
+    - Open the [e2e-action-workflows](https://github.com/GitHubConstellation2022/e2e-action-workflows) in a new tab
     - Sign in to your GitHub account from top right if not signed-in already.
     - Fork this repository into the new org (using `Fork` option on top right of the screen). This repository will get forked as `<new_org_name>/e2e-action-workflows`
     
