@@ -61,5 +61,5 @@ For each push. a deployment happens to staging environment and then the E2E test
 You can configure an approval in the production environment present in the Node-app repository. 
 This will make sure to pause the deployment to production by asking for an approval from the reviewers.
 ```
-## Exercise 1 :
+## Exercise 4 :
 [Monitoring](../exercise-1/6_monitoring.md)
