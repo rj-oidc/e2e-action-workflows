@@ -2,8 +2,9 @@
 
 name: "Issue closed"
 on:
-  issues:
-    types: []
+#   issues:
+#     types: [closed]
+  workflow_dispatch:
 
 jobs:
   design-issue-closed:
