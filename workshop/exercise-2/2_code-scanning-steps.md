@@ -28,6 +28,9 @@ In this section, we will go through
 
 ### 5. Commit and run
 
+### 6. See scan results
+To see the alerts and runs, we need to go to Security tab -> Code Scanning Alerts from the menu on the left.
+<img width="411" alt="image" src="https://user-images.githubusercontent.com/58063491/169008628-b1b3eb1f-5f2c-455f-a67b-8c432b8963ba.png">
 
 
 ## 📚 Resources:
