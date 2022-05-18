@@ -1,8 +1,8 @@
-# Triggers when an issue is assigned.
-name: "Issue assigned"
-on:
-  issues:
-    types: [assigned]
+# # Triggers when an issue is assigned.
+# name: "Issue assigned"
+# on:
+#   issues:
+#     types: [assigned]
 
 jobs:
   issue-assigned:
