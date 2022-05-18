@@ -70,7 +70,7 @@ Once workflow runs successfully, you can see that the issue is getting reflected
 
 
 1. Open [issue-assigned.yml](/.github/workflows/issue-assigned.yml) in new tab.
-2. Edit the file and add `assigned` trigger.
+2. Uncomment the issue trigger and remove `workflow_dispatch` line.
 
 Following is the yaml for file. This workflow will get trigerred whenever a new issue is created.
 ```yaml 
@@ -136,8 +136,8 @@ Since we have the previous workflow (`add-to-project.yml`) as well, the new issu
 
 ![Screenshot 2022-05-17 at 11 13 23 PM](https://user-images.githubusercontent.com/17411453/168876861-4b7d2a2a-8044-4d0f-9da2-8f42f950e215.png)
 
-1. Open [issue-assigned.yml](/.github/workflows/issue-assigned.yml) in new tab.
-2. Edit the file and add `closed` trigger.
+1. Open [issue-closed.yml](/.github/workflows/issue-closed.yml) in new tab.
+2. Uncomment the issue trigger and remove `workflow_dispatch` line.
 3. The workflow has logic to create issues in SDLC manner whenever prior issue is closed. It also updates the feature issue to track progress.
 
 Now we will close the design issue. This will create a two new issues(Implementation and Security) and add a comment in feature issue.
