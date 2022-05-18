@@ -70,6 +70,7 @@ Once workflow runs successfully, you can see that the issue is getting reflected
 
 
 1. Open [issue-assigned.yml](/.github/workflows/issue-assigned.yml) in new tab.
+2. Uncomment the issue trigger logic. 
 Following is the yaml for file. This workflow will get trigerred whenever a new issue is created.
 ```yaml 
 # Triggers when an issue is assigned.
