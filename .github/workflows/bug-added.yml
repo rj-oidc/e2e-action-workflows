@@ -1,0 +1,39 @@
+# # Triggers whenever a new bug is added 
+# name: "Assign label and dri"
+# on:
+#   issues:
+#     types: [opened]
+
+jobs:
+  automate-bug:
+    name: Add label to bug and assign the issue
+    if: contains(github.event.issue.title, 'bug')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name : Get dri
+        id : dri
+        shell: bash
+        run : |
+          ls
+          dri=$(cut -d' ' -f1 ./DRI.txt)
+          echo "::set-output name=dri::$dri"
+          
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          labels: bug
+          
+      - uses: actions-ecosystem/action-add-assignees@v1
+        with:
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
+          assignees: ${{ steps.dri.outputs.dri }}
+          
+#       - name: Send message to Slack API
+#         uses: archive/github-actions-slack@v2.0.0
+#         id: notify
+#         with:
+#           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+#           slack-channel: CPPUV5KU0
+#           slack-text: Hello! A new bug is created in "${{ github.repository }}"
